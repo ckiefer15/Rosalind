@@ -1,3 +1,12 @@
+def memoize(f):
+    memo = {}
+    def helper(x):
+        if x not in memo:
+            memo[x] = f(x)
+        return memo[x]
+    return helper
+
+@memoize
 def rabbitRecurrence(n):
     if n==0 or n==1 or n==2:
         return 1
